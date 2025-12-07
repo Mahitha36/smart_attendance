@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  backend:
+    build: ./backend
+    container_name: smart_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - ./data:/data
+
+  inference:
+    build: ./inference
+    container_name: smart_inference
+    volumes:
+      - ./inference:/app
+      - /dev/video0:/dev/video0   # Webcam access
+    devices:
+      - /dev/video0:/dev/video0
+    depends_on:
+      - backend

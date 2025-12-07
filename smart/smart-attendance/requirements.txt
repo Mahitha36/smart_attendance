@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+pydantic
+requests
+opencv-python
+ultralytics
+facenet-pytorch
+torch
+numpy
+python-dotenv
